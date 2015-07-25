@@ -14,6 +14,9 @@
 		226195411B6401E0002E03E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226195401B6401E0002E03E3 /* Images.xcassets */; };
 		226195441B6401E0002E03E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226195421B6401E0002E03E3 /* LaunchScreen.xib */; };
 		226195501B6401E0002E03E3 /* DocOnDemandTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261954F1B6401E0002E03E3 /* DocOnDemandTests.m */; };
+		2261955B1B641B4E002E03E3 /* AthenaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261955A1B641B4E002E03E3 /* AthenaAPI.m */; };
+		2261955E1B641CA5002E03E3 /* AppointmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261955D1B641CA5002E03E3 /* AppointmentsTableViewController.m */; };
+		226195611B6422AB002E03E3 /* ApiAppointment.m in Sources */ = {isa = PBXBuildFile; fileRef = 226195601B6422AB002E03E3 /* ApiAppointment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		226195491B6401E0002E03E3 /* DocOnDemandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocOnDemandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2261954E1B6401E0002E03E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2261954F1B6401E0002E03E3 /* DocOnDemandTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocOnDemandTests.m; sourceTree = "<group>"; };
+		226195591B641B4E002E03E3 /* AthenaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AthenaAPI.h; path = ../AthenaAPI.h; sourceTree = "<group>"; };
+		2261955A1B641B4E002E03E3 /* AthenaAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AthenaAPI.m; path = ../AthenaAPI.m; sourceTree = "<group>"; };
+		2261955C1B641CA5002E03E3 /* AppointmentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsTableViewController.h; sourceTree = "<group>"; };
+		2261955D1B641CA5002E03E3 /* AppointmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentsTableViewController.m; sourceTree = "<group>"; };
+		2261955F1B6422AB002E03E3 /* ApiAppointment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiAppointment.h; sourceTree = "<group>"; };
+		226195601B6422AB002E03E3 /* ApiAppointment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiAppointment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +90,17 @@
 		226195321B6401E0002E03E3 /* DocOnDemand */ = {
 			isa = PBXGroup;
 			children = (
+				226195591B641B4E002E03E3 /* AthenaAPI.h */,
+				2261955A1B641B4E002E03E3 /* AthenaAPI.m */,
 				226195371B6401E0002E03E3 /* AppDelegate.h */,
 				226195381B6401E0002E03E3 /* AppDelegate.m */,
 				2261953A1B6401E0002E03E3 /* ViewController.h */,
 				2261953B1B6401E0002E03E3 /* ViewController.m */,
 				2261953D1B6401E0002E03E3 /* Main.storyboard */,
+				2261955C1B641CA5002E03E3 /* AppointmentsTableViewController.h */,
+				2261955D1B641CA5002E03E3 /* AppointmentsTableViewController.m */,
+				2261955F1B6422AB002E03E3 /* ApiAppointment.h */,
+				226195601B6422AB002E03E3 /* ApiAppointment.m */,
 				226195401B6401E0002E03E3 /* Images.xcassets */,
 				226195421B6401E0002E03E3 /* LaunchScreen.xib */,
 				226195331B6401E0002E03E3 /* Supporting Files */,
@@ -219,9 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226195611B6422AB002E03E3 /* ApiAppointment.m in Sources */,
 				2261953C1B6401E0002E03E3 /* ViewController.m in Sources */,
+				2261955B1B641B4E002E03E3 /* AthenaAPI.m in Sources */,
 				226195391B6401E0002E03E3 /* AppDelegate.m in Sources */,
 				226195361B6401E0002E03E3 /* main.m in Sources */,
+				2261955E1B641CA5002E03E3 /* AppointmentsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

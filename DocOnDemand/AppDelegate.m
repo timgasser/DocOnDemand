@@ -7,15 +7,89 @@
 //
 
 #import "AppDelegate.h"
+#import "AthenaAPI.h"
+
 
 @interface AppDelegate ()
+
+
 
 @end
 
 @implementation AppDelegate
 
 
+// Class method to get the App Delegate (used to access the Root MOC)
++ (instancetype)sharedDelegate;
+{
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
+    NSAssert([delegate isKindOfClass:[AppDelegate class]], @"Expected to use our app delegate class");
+    return (AppDelegate *) delegate;
+}
+
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+#pragma warning - This token is only valid for 1 hour ! Remember to renew !
+
+    self.token = @"vb45mysnmhjezsarxryzne66";
+    self.practiceID = @"195900";
+    self.patientID = @"1";
+    self.baseURI = @"https://api.athenahealth.com/preview1";
+
+    
+    
+    
+//    NSString *exampleHostString = @"https://api.athenahealth.com/preview1/1/practiceinfo";
+//
+//    
+//    // API test
+//    // Create an NSURLRequest
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/practiceinfo", baseURI]];
+//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+//    [urlRequest addValue:@"Bearer 4rtcfuektbtkg8cjakfzansf" forHTTPHeaderField:@"Authorization"];
+//    
+//    NSLog(@"url request : %@", urlRequest);
+//    
+//    // Create the NSURLSession
+//    NSURLSessionConfiguration *ephemeralConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:ephemeralConfig];
+//    
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        
+//        NSLog(@"data = %@, response = %@, error = %@", data, response, error);
+//        
+//        
+//        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"json string is %@", jsonString);
+//        
+//        // Convert to dictionary to pull out values
+//        
+//        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+//        NSLog(@"dictionary response is %@", dictionary);
+//        
+//        
+//        NSInteger practiceId = (NSInteger ) dictionary[@"practiceinfo"][0][@"practiceid"];
+//
+//        NSLog(@"practice id = %td", practiceId);
+//        
+//        
+//        
+//        
+//    
+//        
+//    }];
+//    
+//    [dataTask resume];
+//    
+//    
+//
+    
+    
+    
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -41,5 +115,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 @end

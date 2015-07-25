@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
++ (instancetype)sharedDelegate;
+
+
+
+@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *practiceID;
+@property (nonatomic, strong) NSString *patientID;
+@property (nonatomic, strong) NSString *baseURI;
 
 
 @end
