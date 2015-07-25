@@ -11,6 +11,8 @@
 
 #import "ApiAppointment.h"
 
+const CGFloat headerFooterSize = 10.0f;
+
 @interface AppointmentsTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *appointments;
@@ -57,7 +59,8 @@
     NSURLSessionConfiguration *ephemeralConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:ephemeralConfig];
     
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         NSLog(@"data = %@, response = %@, error = %@", data, response, error);
         
@@ -197,5 +200,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+// Tune the gap between groups in the tableview here
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return headerFooterSize;
+    
+}
+
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    
+    if (section == 0) {
+        return headerFooterSize * 2.0f;
+    } else {
+        return headerFooterSize;
+    }
+}
+
 
 @end

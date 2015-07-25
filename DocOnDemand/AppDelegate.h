@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *practiceID;
 @property (nonatomic, strong) NSString *patientID;
 @property (nonatomic, strong) NSString *baseURI;
-
+@property (nonatomic, strong) NSString *departmentID;
 
 @end
 
