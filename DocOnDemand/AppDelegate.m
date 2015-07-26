@@ -34,12 +34,20 @@
     
 #pragma warning - This token is only valid for 1 hour ! Remember to renew !
 
-    self.token = @"g48yre3sc6kcusepxjyhpgu5";
+    self.token = @"cpvxaqbg56vmmaxrg45m3tjx";
     self.practiceID = @"195900";
     self.patientID = @"";
     self.baseURI = @"https://api.athenahealth.com/preview1";
     self.departmentID = @"145";
     
+    
+    
+    
+    
+    // todo add a token renewal method here, callable from anywhere
+    
+    // Show the login confirmation screen
+//    [self.window.rootViewController performSegueWithIdentifier:@"loginSegue" sender:self];
     
     
 //    NSString *exampleHostString = @"https://api.athenahealth.com/preview1/1/practiceinfo";

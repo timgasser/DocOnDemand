@@ -32,9 +32,11 @@ const CGFloat headerFooterSize = 10.0f;
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 
+//    [self performSegueWithIdentifier:@"loginSegue" sender:self];
+    
 }
 
 - (void)viewDidLoad {

@@ -2,9 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="twP-UV-1m2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Appointments Table View Controller-->
+        <!--Appointments-->
         <scene sceneID="QhJ-hF-VJr">
             <objects>
                 <tableViewController id="pJs-vJ-SNn" customClass="AppointmentsTableViewController" sceneMemberID="viewController">
@@ -39,7 +40,7 @@
                             <outlet property="delegate" destination="pJs-vJ-SNn" id="Y28-wt-8Gf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5zJ-1v-Pht"/>
+                    <navigationItem key="navigationItem" title="Appointments" id="5zJ-1v-Pht"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63n-7v-0iX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1000" y="-509"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="eMU-7X-ocB">
             <objects>
-                <tabBarController id="twP-UV-1m2" sceneMemberID="viewController">
+                <tabBarController id="twP-UV-1m2" customClass="TabBarViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="XlN-Ja-mZu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -91,11 +92,78 @@
                     <connections>
                         <segue destination="q7c-Io-cMv" kind="relationship" relationship="viewControllers" id="0As-2a-sxq"/>
                         <segue destination="sxJ-2I-egn" kind="relationship" relationship="viewControllers" id="xzj-xq-vAZ"/>
+                        <segue destination="ly2-W8-8Vb" kind="relationship" relationship="viewControllers" id="yQZ-Os-KR5"/>
+                        <segue destination="V6B-Dg-vrQ" kind="presentation" identifier="loginSegue" id="Nqg-tZ-Dgp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdp-iQ-mYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-750" y="216"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="tmC-yX-cba">
+            <objects>
+                <viewController id="V6B-Dg-vrQ" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eS8-3H-xi1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Maa-z0-s2n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a0n-Ba-ynZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="C9b-0m-f2J">
+                                <rect key="frame" x="16" y="120" width="568" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="459601256.16610003">
+                                    <!--2015-07-26 11:00:56 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y3u-md-vby">
+                                <rect key="frame" x="16" y="82" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <outlet property="delegate" destination="V6B-Dg-vrQ" id="hJD-r2-wah"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter last name and D.O.B" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bj-Nb-O5H">
+                                <rect key="frame" x="171" y="40" width="259" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="cc8-uo-nxM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmW-wy-fA8">
+                                <rect key="frame" x="280" y="290" width="41" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="V6B-Dg-vrQ" eventType="touchUpInside" id="AmW-5g-RHU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y3u-md-vby" firstAttribute="top" secondItem="4bj-Nb-O5H" secondAttribute="bottom" constant="8" id="1mf-mQ-QhD"/>
+                            <constraint firstAttribute="centerX" secondItem="4bj-Nb-O5H" secondAttribute="centerX" constant="-0.5" id="Cdj-Iy-azQ"/>
+                            <constraint firstAttribute="centerX" secondItem="pmW-wy-fA8" secondAttribute="centerX" constant="-0.5" id="E7I-2a-BtF"/>
+                            <constraint firstItem="pmW-wy-fA8" firstAttribute="top" secondItem="C9b-0m-f2J" secondAttribute="bottom" constant="8" id="Or3-2q-DRS"/>
+                            <constraint firstItem="C9b-0m-f2J" firstAttribute="trailing" secondItem="a0n-Ba-ynZ" secondAttribute="trailingMargin" id="byn-pg-EIx"/>
+                            <constraint firstItem="y3u-md-vby" firstAttribute="leading" secondItem="a0n-Ba-ynZ" secondAttribute="leadingMargin" id="dRQ-gQ-wyH"/>
+                            <constraint firstItem="C9b-0m-f2J" firstAttribute="leading" secondItem="a0n-Ba-ynZ" secondAttribute="leadingMargin" id="esO-hc-VHj"/>
+                            <constraint firstItem="C9b-0m-f2J" firstAttribute="top" secondItem="y3u-md-vby" secondAttribute="bottom" constant="8" id="fmJ-6e-g5i"/>
+                            <constraint firstItem="y3u-md-vby" firstAttribute="trailing" secondItem="a0n-Ba-ynZ" secondAttribute="trailingMargin" id="k7l-Vq-Z3W"/>
+                            <constraint firstItem="4bj-Nb-O5H" firstAttribute="top" secondItem="eS8-3H-xi1" secondAttribute="bottom" constant="20" id="xxJ-gG-NOf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fvm-h3-PoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-750" y="-657"/>
         </scene>
         <!--Appointments-->
         <scene sceneID="nmH-z4-Kqm">
@@ -116,6 +184,73 @@
             </objects>
             <point key="canvasLocation" x="244" y="195"/>
         </scene>
+        <!--Create Booking-->
+        <scene sceneID="WcN-w5-ul0">
+            <objects>
+                <viewController id="5Hy-hy-iDS" customClass="BookingPayerApptViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tup-MH-ddb"/>
+                        <viewControllerLayoutGuide type="bottom" id="v3i-Q4-rlE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gH2-Eh-J3W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrf-Iq-xKV">
+                                <rect key="frame" x="16" y="99" width="568" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5Hy-hy-iDS" id="vBh-2H-kfn"/>
+                                    <outlet property="delegate" destination="5Hy-hy-iDS" id="dZO-mj-k4Y"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDp-dF-84e">
+                                <rect key="frame" x="16" y="72" width="568" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oai-39-tdX">
+                                <rect key="frame" x="16" y="261" width="568" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVA-qB-ZNe">
+                                <rect key="frame" x="16" y="287" width="568" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5Hy-hy-iDS" id="qF4-vN-5p8"/>
+                                    <outlet property="delegate" destination="5Hy-hy-iDS" id="g6q-X8-mWK"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oai-39-tdX" firstAttribute="top" secondItem="Mrf-Iq-xKV" secondAttribute="bottom" id="7GV-CV-fXk"/>
+                            <constraint firstItem="sVA-qB-ZNe" firstAttribute="trailing" secondItem="gH2-Eh-J3W" secondAttribute="trailingMargin" id="Bpl-nv-qfP"/>
+                            <constraint firstItem="aDp-dF-84e" firstAttribute="top" secondItem="Tup-MH-ddb" secondAttribute="bottom" constant="8" id="H8f-y8-U8M"/>
+                            <constraint firstItem="sVA-qB-ZNe" firstAttribute="leading" secondItem="gH2-Eh-J3W" secondAttribute="leadingMargin" id="HCe-84-4Eq"/>
+                            <constraint firstItem="oai-39-tdX" firstAttribute="leading" secondItem="gH2-Eh-J3W" secondAttribute="leadingMargin" id="R0A-a8-YwV"/>
+                            <constraint firstItem="Mrf-Iq-xKV" firstAttribute="leading" secondItem="gH2-Eh-J3W" secondAttribute="leadingMargin" id="U6R-9g-mow"/>
+                            <constraint firstItem="oai-39-tdX" firstAttribute="trailing" secondItem="gH2-Eh-J3W" secondAttribute="trailingMargin" id="VLl-bU-Z15"/>
+                            <constraint firstItem="aDp-dF-84e" firstAttribute="trailing" secondItem="gH2-Eh-J3W" secondAttribute="trailingMargin" id="Zgd-Yd-277"/>
+                            <constraint firstItem="aDp-dF-84e" firstAttribute="leading" secondItem="gH2-Eh-J3W" secondAttribute="leadingMargin" id="is4-rb-52l"/>
+                            <constraint firstItem="Mrf-Iq-xKV" firstAttribute="trailing" secondItem="gH2-Eh-J3W" secondAttribute="trailingMargin" id="lls-Nj-Mdq"/>
+                            <constraint firstItem="sVA-qB-ZNe" firstAttribute="top" secondItem="oai-39-tdX" secondAttribute="bottom" id="pl9-BC-XZD"/>
+                            <constraint firstItem="Mrf-Iq-xKV" firstAttribute="top" secondItem="aDp-dF-84e" secondAttribute="bottom" id="qSg-L5-o7H"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Booking" id="FkA-uz-QyD">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Fm6-79-9BR"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="apptPicker" destination="sVA-qB-ZNe" id="fpl-59-oai"/>
+                        <outlet property="payerPicker" destination="Mrf-Iq-xKV" id="A5a-Un-FxU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhN-KV-pQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="1097"/>
+        </scene>
         <!--User-->
         <scene sceneID="c0M-vW-9Nx">
             <objects>
@@ -134,6 +269,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p18-kk-5jd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="-509"/>
+        </scene>
+        <!--Bookings-->
+        <scene sceneID="fFX-1x-j15">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ly2-W8-8Vb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bookings" badgeValue="1" id="we9-Fd-gtb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vXf-iW-jSF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Hy-hy-iDS" kind="relationship" relationship="rootViewController" id="IJv-5b-MqD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhg-iz-02g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="1097"/>
         </scene>
     </scenes>
 </document>
