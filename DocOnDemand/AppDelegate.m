@@ -34,13 +34,72 @@
     
 #pragma warning - This token is only valid for 1 hour ! Remember to renew !
 
-    self.token = @"z8c4wayqccqyxk9deb4hm3ed";
+    self.token = @"75f78t4yfbnqsmv966ukfv9e";
     self.practiceID = @"195900";
-    self.patientID = @"4908";
+    self.patientID = @"4909";
     self.baseURI = @"https://api.athenahealth.com/preview1";
     self.departmentID = @"145";
     
+
+    NSString *clientID = @"nr3f8qhcbf6dr8ze4dcebnn3";
+    NSString *clientSecret = @"r326Py6PmysuGgP";
+
+//    // Token request code
+//    
+//    
+//// Use POST
+////    https://api.athenahealth.com/oauthpreview/token
+//// username=key and password=secret
+//    
+//    
+//    NSMutableString *baseToken = [NSMutableString  stringWithFormat:@"https://api.athenahealth.com/oauthpreview/token?grant_type=client_credentials"];
+//
+//    NSURL *url = [NSURL URLWithString:baseToken];
+//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+//
+//    NSString *authStr = [NSString stringWithFormat:@"%@:%@", clientID, clientSecret];
+//    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString *authValue = [NSString stringWithFormat: @"Basic %@",[authData base64EncodedStringWithOptions:0]];
+//    [urlRequest setValue:authValue forHTTPHeaderField:@"Authorization"];
+//    [urlRequest addValue:[NSString stringWithFormat:@"application/x-www-form-urlencoded"] forHTTPHeaderField:@"Content-Type"];
+////    [urlRequest addValue:[NSString stringWithFormat:@"client_credentials"] forHTTPHeaderField:@"grant_type"];
+//    urlRequest.HTTPMethod = @"POST";
+//
+////  "grant_type=client_credentials"
+//    
+//        NSLog(@"url request : %@", urlRequest);
+//    
+//    // Create the NSURLSession
+//    NSURLSessionConfiguration *ephemeralConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:ephemeralConfig];
+//    
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest
+//                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        
+//                                                    NSLog(@"data = %@, response = %@, error = %@", data, response, error);
+//                                                    
+//                                                    
+//                                                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//                                                            NSLog(@"json string is %@", jsonString);
+//                                                    
+//                                                    // Convert to dictionary to pull out values
+//                                                    
+//                                                    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+//                                                    //        NSLog(@"dict response is %@", responseDictionary);
+//                                                    
+//                                                    NSArray *responseArray = responseDictionary[@"appointments"];
+//                                                    NSLog(@"found %tu appts", [responseArray count]);
+//                                                    
+//                                                    //        self.apptSlots = nil;
+//                                                    
+//                                                }];
+//    
+//    
+//    [dataTask resume];
+//    
+
     
+    //----- end !
     
     
     

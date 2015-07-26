@@ -10,9 +10,10 @@
 
 #import "LabelTextEntryTableViewCell.h"
 
-#import "ApiUser.h"
 
 #import "AppDelegate.h"
+
+#import "ApiPatient.h"
 
 const CGFloat headerFooterSize = 10.0f;
 
@@ -21,9 +22,12 @@ const CGFloat headerFooterSize = 10.0f;
 
 - (IBAction)saveButtonPressed:(id)sender;
 
-@property (nonatomic, strong) ApiUser *apiUser;
+@property (nonatomic, strong) ApiPatient *apiPatient;
 
 //@property (nonatomic, strong) NSString *patientID;
+
+
+
 
 @end
 
@@ -35,6 +39,91 @@ const CGFloat headerFooterSize = 10.0f;
 
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 
+    self.apiPatient = [[ApiPatient alloc] init];
+    
+    AppDelegate *delegate = [AppDelegate sharedDelegate];
+    
+    // Build the URL request to find all appointments
+    
+    NSString *token = delegate.token;
+    NSString *practiceString = delegate.practiceID;
+    NSString *patientId = delegate.patientID;
+    NSString *baseURI = delegate.baseURI;
+    NSString *deptId = delegate.departmentID;
+    
+    // https://api.athenahealth.com/preview1/195900/patients/4098
+
+    
+    // API test
+    // Create an NSURLRequest
+    NSMutableString *urlString = [NSMutableString stringWithFormat:@"%@/%@/patients/%@?", baseURI, practiceString, patientId];
+    
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+    //    [urlRequest addValue:@"application/x-www-url-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    urlRequest.HTTPMethod = @"GET";
+    
+    
+    NSLog(@"token is %@", token);
+    NSLog(@"url request : %@", urlRequest);
+    
+    // Create the NSURLSession
+    NSURLSessionConfiguration *ephemeralConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:ephemeralConfig];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+                NSLog(@"data = %@, response = %@, error = %@", data, response, error);
+        
+        
+        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSLog(@"json string is %@", jsonString);
+        
+        // Convert to dictionary to pull out values
+        
+        NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        
+        
+        self.apiPatient = [[ApiPatient alloc] init];
+        
+        NSDictionary *patientDict =responseArray[0];
+        
+        self.apiPatient.firstName = patientDict[@"firstname"];
+        self.apiPatient.lastName = patientDict[@"lastname"];
+        self.apiPatient.dob = patientDict[@"dob"];
+        self.apiPatient.email = @"examplename@gmail.com"; // responseDictionary[0][@"examplename@gmail.com];
+        self.apiPatient.phone = @"512-847-9864";
+        self.apiPatient.address1 = patientDict[@"address1"];
+        self.apiPatient.city = @"Austin";
+        self.apiPatient.state = @"TX";
+        self.apiPatient.patientId = patientDict[@"patientid"];
+        
+
+        
+        //        NSLog(@"dict response is %@", responseDictionary);
+        
+        
+        
+        //        NSLog(@"apptSlots = %@", self.apptSlots);
+        
+        dispatch_async(
+                       dispatch_get_main_queue(),
+                       ^{
+                           [self.tableView reloadData];
+                       }
+                       );
+        
+        
+    }];
+    
+    [dataTask resume];
+    
+    
+
+    
 //    [self performSegueWithIdentifier:@"loginSegue" sender:self];
     
 }
@@ -109,19 +198,19 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"firstName";
             cell.label.text = NSLocalizedString(@"First Name", nil);
             cell.textField.placeholder = @"John";
-            cell.textField.text = @"John";
-            cell.textField.enabled = true;
+            cell.textField.text = self.apiPatient.firstName;
+            cell.textField.enabled = false;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
-            [cell.textField becomeFirstResponder];
+//            [cell.textField becomeFirstResponder];
             return cell;
     }
         case 1: {
             cell.identifier = @"lastName";
             cell.label.text = NSLocalizedString(@"Last Name", nil);
             cell.textField.placeholder = @"Doe";
-            cell.textField.text = @"Doe";
-            cell.textField.enabled = true;
+            cell.textField.text = self.apiPatient.lastName;
+            cell.textField.enabled = false;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
             return cell;
@@ -130,8 +219,8 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"dateOfBirth";
             cell.label.text = NSLocalizedString(@"Date of Birth", nil);
             cell.textField.placeholder = @"mm/dd/yy";
-            cell.textField.text = @"05/10/62";
-            cell.textField.enabled = true;
+            cell.textField.text = self.apiPatient.dob;
+            cell.textField.enabled = false;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
             return cell;
@@ -141,7 +230,7 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"email";
             cell.label.text = NSLocalizedString(@"Email", nil);
             cell.textField.placeholder = @"john.doe@gmail.com";
-            cell.textField.text = @"john.doe@gmail.com";
+            cell.textField.text = self.apiPatient.email;
             cell.textField.enabled = true;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -152,7 +241,7 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"phone";
             cell.label.text = NSLocalizedString(@"Phone", nil);
             cell.textField.placeholder = @"1234567890";
-            cell.textField.text = @"5128393726";
+            cell.textField.text = self.apiPatient.phone;
             cell.textField.enabled = true;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -163,7 +252,7 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"address1";
             cell.label.text = NSLocalizedString(@"Address 1", nil);
             cell.textField.placeholder = @"800 West 6th St";
-            cell.textField.text = @"800 West 6th St";
+            cell.textField.text = self.apiPatient.address1;
             cell.textField.enabled = true;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -174,7 +263,7 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"city";
             cell.label.text = NSLocalizedString(@"City", nil);
             cell.textField.placeholder = @"Austin";
-            cell.textField.text = @"Austin";
+            cell.textField.text = self.apiPatient.city;
             cell.textField.enabled = true;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -185,7 +274,7 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"state";
             cell.label.text = NSLocalizedString(@"State", nil);
             cell.textField.placeholder = @"TX";
-            cell.textField.text = @"TX";
+            cell.textField.text = self.apiPatient.state;
             cell.textField.enabled = true;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -197,7 +286,7 @@ const CGFloat headerFooterSize = 10.0f;
             cell.label.text = NSLocalizedString(@"Patient ID", nil);
             AppDelegate *delegate = [AppDelegate sharedDelegate];
 
-            cell.textField.text = delegate.patientID;
+            cell.textField.text = self.apiPatient.patientId;
             cell.textField.enabled = false;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
