@@ -13,6 +13,10 @@
 		220627901B6502B000DC6DC7 /* AppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2206278F1B6502B000DC6DC7 /* AppointmentTableViewController.m */; };
 		220627931B65035100DC6DC7 /* AppointmentSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 220627921B65035100DC6DC7 /* AppointmentSlot.m */; };
 		220627961B650A8E00DC6DC7 /* BookingConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220627951B650A8E00DC6DC7 /* BookingConfirmationViewController.m */; };
+		220627991B65345100DC6DC7 /* UserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220627981B65345100DC6DC7 /* UserNavigationController.m */; };
+		2206279F1B6534C600DC6DC7 /* ApptNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2206279E1B6534C600DC6DC7 /* ApptNavigationViewController.m */; };
+		220627A21B6534EB00DC6DC7 /* BookingsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220627A11B6534EB00DC6DC7 /* BookingsNavigationViewController.m */; };
+		220627A51B65350700DC6DC7 /* SettingsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220627A41B65350700DC6DC7 /* SettingsNavigationViewController.m */; };
 		226195361B6401E0002E03E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 226195351B6401E0002E03E3 /* main.m */; };
 		226195391B6401E0002E03E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 226195381B6401E0002E03E3 /* AppDelegate.m */; };
 		2261953C1B6401E0002E03E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261953B1B6401E0002E03E3 /* ViewController.m */; };
@@ -52,6 +56,14 @@
 		220627921B65035100DC6DC7 /* AppointmentSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentSlot.m; sourceTree = "<group>"; };
 		220627941B650A8E00DC6DC7 /* BookingConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingConfirmationViewController.h; sourceTree = "<group>"; };
 		220627951B650A8E00DC6DC7 /* BookingConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingConfirmationViewController.m; sourceTree = "<group>"; };
+		220627971B65345100DC6DC7 /* UserNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNavigationController.h; sourceTree = "<group>"; };
+		220627981B65345100DC6DC7 /* UserNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNavigationController.m; sourceTree = "<group>"; };
+		2206279D1B6534C600DC6DC7 /* ApptNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApptNavigationViewController.h; sourceTree = "<group>"; };
+		2206279E1B6534C600DC6DC7 /* ApptNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApptNavigationViewController.m; sourceTree = "<group>"; };
+		220627A01B6534EB00DC6DC7 /* BookingsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingsNavigationViewController.h; sourceTree = "<group>"; };
+		220627A11B6534EB00DC6DC7 /* BookingsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingsNavigationViewController.m; sourceTree = "<group>"; };
+		220627A31B65350700DC6DC7 /* SettingsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsNavigationViewController.h; sourceTree = "<group>"; };
+		220627A41B65350700DC6DC7 /* SettingsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsNavigationViewController.m; sourceTree = "<group>"; };
 		226195301B6401E0002E03E3 /* DocOnDemand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocOnDemand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226195341B6401E0002E03E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		226195351B6401E0002E03E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +110,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2206279A1B65348A00DC6DC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				226195591B641B4E002E03E3 /* AthenaAPI.h */,
+				2261955A1B641B4E002E03E3 /* AthenaAPI.m */,
+				2261955F1B6422AB002E03E3 /* ApiAppointment.h */,
+				226195601B6422AB002E03E3 /* ApiAppointment.m */,
+				220627911B65035100DC6DC7 /* AppointmentSlot.h */,
+				220627921B65035100DC6DC7 /* AppointmentSlot.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2206279B1B65349500DC6DC7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				226195371B6401E0002E03E3 /* AppDelegate.h */,
+				226195381B6401E0002E03E3 /* AppDelegate.m */,
+				2261953D1B6401E0002E03E3 /* Main.storyboard */,
+				226195401B6401E0002E03E3 /* Images.xcassets */,
+				226195421B6401E0002E03E3 /* LaunchScreen.xib */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		2206279C1B6534A100DC6DC7 /* Navigation Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				220627A31B65350700DC6DC7 /* SettingsNavigationViewController.h */,
+				220627A41B65350700DC6DC7 /* SettingsNavigationViewController.m */,
+				220627A01B6534EB00DC6DC7 /* BookingsNavigationViewController.h */,
+				220627A11B6534EB00DC6DC7 /* BookingsNavigationViewController.m */,
+				2206279D1B6534C600DC6DC7 /* ApptNavigationViewController.h */,
+				2206279E1B6534C600DC6DC7 /* ApptNavigationViewController.m */,
+				220627971B65345100DC6DC7 /* UserNavigationController.h */,
+				220627981B65345100DC6DC7 /* UserNavigationController.m */,
+			);
+			name = "Navigation Controllers";
+			sourceTree = "<group>";
+		};
 		226195271B6401E0002E03E3 = {
 			isa = PBXGroup;
 			children = (
@@ -119,15 +171,13 @@
 		226195321B6401E0002E03E3 /* DocOnDemand */ = {
 			isa = PBXGroup;
 			children = (
-				226195591B641B4E002E03E3 /* AthenaAPI.h */,
-				2261955A1B641B4E002E03E3 /* AthenaAPI.m */,
-				226195371B6401E0002E03E3 /* AppDelegate.h */,
-				226195381B6401E0002E03E3 /* AppDelegate.m */,
+				2206279A1B65348A00DC6DC7 /* Model */,
+				2206279B1B65349500DC6DC7 /* Base */,
 				2261953A1B6401E0002E03E3 /* ViewController.h */,
 				2261953B1B6401E0002E03E3 /* ViewController.m */,
 				226195671B6432CE002E03E3 /* UserTableViewController.h */,
 				226195681B6432CE002E03E3 /* UserTableViewController.m */,
-				2261953D1B6401E0002E03E3 /* Main.storyboard */,
+				2206279C1B6534A100DC6DC7 /* Navigation Controllers */,
 				220627941B650A8E00DC6DC7 /* BookingConfirmationViewController.h */,
 				220627951B650A8E00DC6DC7 /* BookingConfirmationViewController.m */,
 				2206278E1B6502B000DC6DC7 /* AppointmentTableViewController.h */,
@@ -145,12 +195,6 @@
 				226195641B6432B5002E03E3 /* LabelTextEntryTableViewCell.xib */,
 				2261955C1B641CA5002E03E3 /* AppointmentsTableViewController.h */,
 				2261955D1B641CA5002E03E3 /* AppointmentsTableViewController.m */,
-				2261955F1B6422AB002E03E3 /* ApiAppointment.h */,
-				226195601B6422AB002E03E3 /* ApiAppointment.m */,
-				220627911B65035100DC6DC7 /* AppointmentSlot.h */,
-				220627921B65035100DC6DC7 /* AppointmentSlot.m */,
-				226195401B6401E0002E03E3 /* Images.xcassets */,
-				226195421B6401E0002E03E3 /* LaunchScreen.xib */,
 				226195331B6401E0002E03E3 /* Supporting Files */,
 			);
 			path = DocOnDemand;
@@ -286,14 +330,18 @@
 				2261956C1B64382C002E03E3 /* ApiUser.m in Sources */,
 				226195611B6422AB002E03E3 /* ApiAppointment.m in Sources */,
 				220627961B650A8E00DC6DC7 /* BookingConfirmationViewController.m in Sources */,
+				2206279F1B6534C600DC6DC7 /* ApptNavigationViewController.m in Sources */,
 				2261953C1B6401E0002E03E3 /* ViewController.m in Sources */,
 				220627901B6502B000DC6DC7 /* AppointmentTableViewController.m in Sources */,
 				226195691B6432CE002E03E3 /* UserTableViewController.m in Sources */,
 				220627871B64F4F100DC6DC7 /* LoginViewController.m in Sources */,
+				220627A21B6534EB00DC6DC7 /* BookingsNavigationViewController.m in Sources */,
 				2261955B1B641B4E002E03E3 /* AthenaAPI.m in Sources */,
+				220627991B65345100DC6DC7 /* UserNavigationController.m in Sources */,
 				226195391B6401E0002E03E3 /* AppDelegate.m in Sources */,
 				2206278A1B64F80000DC6DC7 /* TabBarViewController.m in Sources */,
 				226195651B6432B5002E03E3 /* LabelTextEntryTableViewCell.m in Sources */,
+				220627A51B65350700DC6DC7 /* SettingsNavigationViewController.m in Sources */,
 				226195361B6401E0002E03E3 /* main.m in Sources */,
 				220627931B65035100DC6DC7 /* AppointmentSlot.m in Sources */,
 				2206278D1B64FD4D00DC6DC7 /* BookingPayerApptViewController.m in Sources */,

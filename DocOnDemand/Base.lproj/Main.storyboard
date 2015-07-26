@@ -94,6 +94,7 @@
                         <segue destination="sxJ-2I-egn" kind="relationship" relationship="viewControllers" id="xzj-xq-vAZ"/>
                         <segue destination="ly2-W8-8Vb" kind="relationship" relationship="viewControllers" id="yQZ-Os-KR5"/>
                         <segue destination="V6B-Dg-vrQ" kind="presentation" identifier="loginSegue" id="Nqg-tZ-Dgp"/>
+                        <segue destination="8Ij-PR-RE7" kind="relationship" relationship="viewControllers" id="i7t-Gh-wjU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdp-iQ-mYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,8 +169,8 @@
         <!--Appointments-->
         <scene sceneID="nmH-z4-Kqm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sxJ-2I-egn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Appointments" id="QVq-DH-Vnh"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sxJ-2I-egn" customClass="ApptNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Appointments" image="ApptIcon" id="QVq-DH-Vnh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oit-sU-uws">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -184,7 +185,7 @@
             </objects>
             <point key="canvasLocation" x="244" y="195"/>
         </scene>
-        <!--Create Booking-->
+        <!--Bookings-->
         <scene sceneID="WcN-w5-ul0">
             <objects>
                 <viewController id="5Hy-hy-iDS" customClass="BookingPayerApptViewController" sceneMemberID="viewController">
@@ -239,7 +240,7 @@
                             <constraint firstItem="Mrf-Iq-xKV" firstAttribute="top" secondItem="aDp-dF-84e" secondAttribute="bottom" id="qSg-L5-o7H"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Booking" id="FkA-uz-QyD">
+                    <navigationItem key="navigationItem" title="Bookings" id="FkA-uz-QyD">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Fm6-79-9BR">
                             <connections>
                                 <segue destination="yxa-zK-pWk" kind="show" id="tQJ-ey-3tf"/>
@@ -336,8 +337,8 @@
         <!--User-->
         <scene sceneID="c0M-vW-9Nx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q7c-Io-cMv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="User" id="iSk-l1-adp"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q7c-Io-cMv" customClass="UserNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="User" image="UserIcon" id="iSk-l1-adp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OJ8-kK-nLl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -355,8 +356,8 @@
         <!--Bookings-->
         <scene sceneID="fFX-1x-j15">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ly2-W8-8Vb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bookings" id="we9-Fd-gtb"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ly2-W8-8Vb" customClass="BookingsNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bookings" image="BookingIcon" id="we9-Fd-gtb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vXf-iW-jSF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -370,6 +371,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhg-iz-02g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="1097"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="8c3-7Y-zVs">
+            <objects>
+                <viewController id="zyX-hm-cLT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hoK-as-pxo"/>
+                        <viewControllerLayoutGuide type="bottom" id="irF-vO-GgB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gy2-vO-uEI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="GBg-5a-BU8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blm-4N-BhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047" y="1859"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YFc-6f-5eU">
@@ -407,5 +427,30 @@
             </objects>
             <point key="canvasLocation" x="3446" y="1097"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="vg4-lR-vmu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ij-PR-RE7" customClass="SettingsNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsIcon" id="1WG-D4-kaf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Z8-02-B7x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zyX-hm-cLT" kind="relationship" relationship="rootViewController" id="b1K-FB-Fym"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5DK-rv-aYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="1859"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="ApptIcon" width="32" height="32"/>
+        <image name="BookingIcon" width="32" height="32"/>
+        <image name="SettingsIcon" width="32" height="32"/>
+        <image name="UserIcon" width="32" height="32"/>
+    </resources>
 </document>

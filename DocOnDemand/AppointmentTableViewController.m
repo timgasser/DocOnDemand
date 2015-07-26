@@ -151,8 +151,8 @@
 
     AppointmentSlot *cellSlot = [self.apptSlots objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = cellSlot.date;
-    cell.detailTextLabel.text = cellSlot.time;
+    cell.textLabel.text = cellSlot.time;
+    cell.detailTextLabel.text = cellSlot.date;
     
     return cell;
 }
