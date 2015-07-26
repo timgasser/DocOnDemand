@@ -306,17 +306,6 @@ const CGFloat headerFooterSize = 10.0f;
     cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     NSString *patientId = cell.textField.text;
     
-
-    
-//    NSString *firstName = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].textLabel.text;
-//    NSString *lastName  = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel.text;
-//    NSString *dob       = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]].textLabel.text;
-//    NSString *email     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]].textLabel.text;
-//    NSString *phone     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:4]].textLabel.text;
-//    NSString *address1  = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text;
-//    NSString *city      = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]].textLabel.text;
-//    NSString *state     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]].textLabel.text;
-//    NSString *patientId = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]].textLabel.text;
     
     AppDelegate *delegate = [AppDelegate sharedDelegate];
     

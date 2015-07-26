@@ -39,6 +39,7 @@
 {
     [super viewDidAppear:animated];
     
+    [self.apptSlots removeAllObjects];
     
     AppDelegate *delegate = [AppDelegate sharedDelegate];
     

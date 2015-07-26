@@ -113,6 +113,8 @@
 		2206279A1B65348A00DC6DC7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2261956A1B64382C002E03E3 /* ApiUser.h */,
+				2261956B1B64382C002E03E3 /* ApiUser.m */,
 				226195591B641B4E002E03E3 /* AthenaAPI.h */,
 				2261955A1B641B4E002E03E3 /* AthenaAPI.m */,
 				2261955F1B6422AB002E03E3 /* ApiAppointment.h */,
@@ -150,6 +152,60 @@
 			name = "Navigation Controllers";
 			sourceTree = "<group>";
 		};
+		220627A61B6536A900DC6DC7 /* Bookings */ = {
+			isa = PBXGroup;
+			children = (
+				220627941B650A8E00DC6DC7 /* BookingConfirmationViewController.h */,
+				220627951B650A8E00DC6DC7 /* BookingConfirmationViewController.m */,
+				2206278B1B64FD4D00DC6DC7 /* BookingPayerApptViewController.h */,
+				2206278C1B64FD4D00DC6DC7 /* BookingPayerApptViewController.m */,
+				2261955C1B641CA5002E03E3 /* AppointmentsTableViewController.h */,
+				2261955D1B641CA5002E03E3 /* AppointmentsTableViewController.m */,
+			);
+			name = Bookings;
+			sourceTree = "<group>";
+		};
+		220627A71B6536B300DC6DC7 /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				2206278E1B6502B000DC6DC7 /* AppointmentTableViewController.h */,
+				2206278F1B6502B000DC6DC7 /* AppointmentTableViewController.m */,
+			);
+			name = Appointments;
+			sourceTree = "<group>";
+		};
+		220627A81B6536BC00DC6DC7 /* Tab bars */ = {
+			isa = PBXGroup;
+			children = (
+				220627851B64F4F100DC6DC7 /* LoginViewController.h */,
+				220627861B64F4F100DC6DC7 /* LoginViewController.m */,
+				220627881B64F80000DC6DC7 /* TabBarViewController.h */,
+				220627891B64F80000DC6DC7 /* TabBarViewController.m */,
+			);
+			name = "Tab bars";
+			sourceTree = "<group>";
+		};
+		220627A91B6536D300DC6DC7 /* Custom Tableview cells */ = {
+			isa = PBXGroup;
+			children = (
+				226195621B6432B5002E03E3 /* LabelTextEntryTableViewCell.h */,
+				226195631B6432B5002E03E3 /* LabelTextEntryTableViewCell.m */,
+				226195641B6432B5002E03E3 /* LabelTextEntryTableViewCell.xib */,
+			);
+			name = "Custom Tableview cells";
+			sourceTree = "<group>";
+		};
+		220627AA1B65385A00DC6DC7 /* User  */ = {
+			isa = PBXGroup;
+			children = (
+				2261953A1B6401E0002E03E3 /* ViewController.h */,
+				2261953B1B6401E0002E03E3 /* ViewController.m */,
+				226195671B6432CE002E03E3 /* UserTableViewController.h */,
+				226195681B6432CE002E03E3 /* UserTableViewController.m */,
+			);
+			name = "User ";
+			sourceTree = "<group>";
+		};
 		226195271B6401E0002E03E3 = {
 			isa = PBXGroup;
 			children = (
@@ -173,28 +229,12 @@
 			children = (
 				2206279A1B65348A00DC6DC7 /* Model */,
 				2206279B1B65349500DC6DC7 /* Base */,
-				2261953A1B6401E0002E03E3 /* ViewController.h */,
-				2261953B1B6401E0002E03E3 /* ViewController.m */,
-				226195671B6432CE002E03E3 /* UserTableViewController.h */,
-				226195681B6432CE002E03E3 /* UserTableViewController.m */,
+				220627AA1B65385A00DC6DC7 /* User  */,
 				2206279C1B6534A100DC6DC7 /* Navigation Controllers */,
-				220627941B650A8E00DC6DC7 /* BookingConfirmationViewController.h */,
-				220627951B650A8E00DC6DC7 /* BookingConfirmationViewController.m */,
-				2206278E1B6502B000DC6DC7 /* AppointmentTableViewController.h */,
-				2206278F1B6502B000DC6DC7 /* AppointmentTableViewController.m */,
-				2206278B1B64FD4D00DC6DC7 /* BookingPayerApptViewController.h */,
-				2206278C1B64FD4D00DC6DC7 /* BookingPayerApptViewController.m */,
-				220627851B64F4F100DC6DC7 /* LoginViewController.h */,
-				220627861B64F4F100DC6DC7 /* LoginViewController.m */,
-				220627881B64F80000DC6DC7 /* TabBarViewController.h */,
-				220627891B64F80000DC6DC7 /* TabBarViewController.m */,
-				2261956A1B64382C002E03E3 /* ApiUser.h */,
-				2261956B1B64382C002E03E3 /* ApiUser.m */,
-				226195621B6432B5002E03E3 /* LabelTextEntryTableViewCell.h */,
-				226195631B6432B5002E03E3 /* LabelTextEntryTableViewCell.m */,
-				226195641B6432B5002E03E3 /* LabelTextEntryTableViewCell.xib */,
-				2261955C1B641CA5002E03E3 /* AppointmentsTableViewController.h */,
-				2261955D1B641CA5002E03E3 /* AppointmentsTableViewController.m */,
+				220627A61B6536A900DC6DC7 /* Bookings */,
+				220627A71B6536B300DC6DC7 /* Appointments */,
+				220627A81B6536BC00DC6DC7 /* Tab bars */,
+				220627A91B6536D300DC6DC7 /* Custom Tableview cells */,
 				226195331B6401E0002E03E3 /* Supporting Files */,
 			);
 			path = DocOnDemand;
