@@ -197,20 +197,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrf-Iq-xKV">
-                                <rect key="frame" x="16" y="99" width="568" height="162"/>
+                                <rect key="frame" x="16" y="98.5" width="568" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5Hy-hy-iDS" id="vBh-2H-kfn"/>
                                     <outlet property="delegate" destination="5Hy-hy-iDS" id="dZO-mj-k4Y"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDp-dF-84e">
-                                <rect key="frame" x="16" y="72" width="568" height="27"/>
+                                <rect key="frame" x="16" y="72" width="568" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oai-39-tdX">
-                                <rect key="frame" x="16" y="261" width="568" height="27"/>
+                                <rect key="frame" x="16" y="260.5" width="568" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -240,7 +240,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Booking" id="FkA-uz-QyD">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="Fm6-79-9BR"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Fm6-79-9BR">
+                            <connections>
+                                <segue destination="yxa-zK-pWk" kind="show" id="tQJ-ey-3tf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="apptPicker" destination="sVA-qB-ZNe" id="fpl-59-oai"/>
@@ -250,6 +254,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhN-KV-pQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056" y="1097"/>
+        </scene>
+        <!--Available Appointments-->
+        <scene sceneID="O21-j9-y9r">
+            <objects>
+                <tableViewController id="9Lv-1H-Y6D" customClass="AppointmentTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xzk-Sy-eA9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="apptSlotCell" textLabel="XeZ-fu-bC7" detailTextLabel="bnA-Fi-q5e" style="IBUITableViewCellStyleValue1" id="W5m-5A-Uyi">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W5m-5A-Uyi" id="Luv-FV-Ltu">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XeZ-fu-bC7">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bnA-Fi-q5e">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="GCU-KF-D9u" kind="show" id="tIF-5q-7JM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Lv-1H-Y6D" id="5rn-e0-KJG"/>
+                            <outlet property="delegate" destination="9Lv-1H-Y6D" id="R6Y-UX-THu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Available Appointments" id="fSJ-47-PhF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYG-CL-BgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2593" y="1097"/>
+        </scene>
+        <!--Booking Confirmation View Controller-->
+        <scene sceneID="m5n-jf-dbL">
+            <objects>
+                <viewController id="rlf-pM-6wL" customClass="BookingConfirmationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wz6-RG-yiC"/>
+                        <viewControllerLayoutGuide type="bottom" id="CZb-dO-IyH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mx1-7W-2HR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirming appointment ... " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B51-Nu-01s">
+                                <rect key="frame" x="195" y="290" width="210" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="B51-Nu-01s" secondAttribute="centerY" id="71F-bn-Fmy"/>
+                            <constraint firstAttribute="centerX" secondItem="B51-Nu-01s" secondAttribute="centerX" id="NLl-rs-7D8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9qL-Tp-iu4"/>
+                    <connections>
+                        <outlet property="confirmationLabel" destination="B51-Nu-01s" id="hM8-hr-ZX5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAL-gQ-uWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4258" y="1097"/>
         </scene>
         <!--User-->
         <scene sceneID="c0M-vW-9Nx">
@@ -274,7 +356,7 @@
         <scene sceneID="fFX-1x-j15">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ly2-W8-8Vb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bookings" badgeValue="1" id="we9-Fd-gtb"/>
+                    <tabBarItem key="tabBarItem" title="Bookings" id="we9-Fd-gtb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vXf-iW-jSF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -288,6 +370,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhg-iz-02g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="1097"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YFc-6f-5eU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yxa-zK-pWk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7h4-Wy-7G0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Lv-1H-Y6D" kind="relationship" relationship="rootViewController" id="Ygb-yr-Adr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlN-bw-FhX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781" y="1097"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TAx-Lh-DeL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GCU-KF-D9u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c86-CI-JjI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rlf-pM-6wL" kind="relationship" relationship="rootViewController" id="1WN-JO-Q4O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0M7-1z-QmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3446" y="1097"/>
         </scene>
     </scenes>
 </document>

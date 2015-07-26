@@ -62,16 +62,16 @@ const CGFloat headerFooterSize = 10.0f;
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        NSLog(@"data = %@, response = %@, error = %@", data, response, error);
+//        NSLog(@"data = %@, response = %@, error = %@", data, response, error);
         
         
         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"json string is %@", jsonString);
+//        NSLog(@"json string is %@", jsonString);
         
         // Convert to dictionary to pull out values
         
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        NSLog(@"dictionary response is %@", dictionary);
+//        NSLog(@"dictionary response is %@", dictionary);
         
         NSNumber *appointmentCountNumber = dictionary[@"totalcount"];
         NSInteger appointmentCount = [appointmentCountNumber integerValue];
@@ -80,7 +80,7 @@ const CGFloat headerFooterSize = 10.0f;
         
         NSArray *appointmentArray = dictionary[@"appointments"];
         
-        NSLog(@"appointmentArray = %@", appointmentArray);
+//        NSLog(@"appointmentArray = %@", appointmentArray);
         
         for (NSDictionary *appointment in appointmentArray) {
             
