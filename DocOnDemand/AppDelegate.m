@@ -34,9 +34,9 @@
     
 #pragma warning - This token is only valid for 1 hour ! Remember to renew !
 
-    self.token = @"75f78t4yfbnqsmv966ukfv9e";
+    self.token = @"5twjajjdxvbszwcze55695d4";
     self.practiceID = @"195900";
-    self.patientID = @"4905";
+    self.patientID = @"4918";
     self.baseURI = @"https://api.athenahealth.com/preview1";
     self.departmentID = @"145";
     
