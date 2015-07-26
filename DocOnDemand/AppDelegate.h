@@ -23,5 +23,6 @@
 @property (nonatomic, strong) NSString *baseURI;
 @property (nonatomic, strong) NSString *departmentID;
 
+
 @end
 

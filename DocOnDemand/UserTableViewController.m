@@ -23,14 +23,26 @@ const CGFloat headerFooterSize = 10.0f;
 
 @property (nonatomic, strong) ApiUser *apiUser;
 
+//@property (nonatomic, strong) NSString *patientID;
+
 @end
 
 @implementation UserTableViewController
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self registerCustomTableViewCells];
+    
+//    self.patientID = @"";
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -138,7 +150,7 @@ const CGFloat headerFooterSize = 10.0f;
             cell.identifier = @"phone";
             cell.label.text = NSLocalizedString(@"Phone", nil);
             cell.textField.placeholder = @"1234567890";
-            cell.textField.text = @"512-839-3726";
+            cell.textField.text = @"5128393726";
             cell.textField.enabled = true;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -181,7 +193,9 @@ const CGFloat headerFooterSize = 10.0f;
         case 20: {
             cell.identifier = @"patientID";
             cell.label.text = NSLocalizedString(@"Patient ID", nil);
-            cell.textField.text = @"";
+            AppDelegate *delegate = [AppDelegate sharedDelegate];
+
+            cell.textField.text = delegate.patientID;
             cell.textField.enabled = false;
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -261,14 +275,45 @@ const CGFloat headerFooterSize = 10.0f;
 {
     NSLog(@"pressed Save");
     
-    NSString *firstName = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].textLabel.text;
-    NSString *lastName  = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel.text;
-    NSString *dob       = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]].textLabel.text;
-    NSString *email     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]].textLabel.text;
-    NSString *phone     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:4]].textLabel.text;
-    NSString *address1  = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text;
-    NSString *city      = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]].textLabel.text;
-    NSString *state     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]].textLabel.text;
+    LabelTextEntryTableViewCell *cell = nil;
+    
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSString *firstName = cell.textField.text;
+    
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    NSString *lastName = cell.textField.text;
+
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    NSString *dob = cell.textField.text;
+
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    NSString *email = cell.textField.text;
+    
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+    NSString *phone = cell.textField.text;
+
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    NSString *address1 = cell.textField.text;
+
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+    NSString *city = cell.textField.text;
+
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
+    NSString *state = cell.textField.text;
+
+    cell = (LabelTextEntryTableViewCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    NSString *patientId = cell.textField.text;
+    
+
+    
+//    NSString *firstName = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].textLabel.text;
+//    NSString *lastName  = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]].textLabel.text;
+//    NSString *dob       = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]].textLabel.text;
+//    NSString *email     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]].textLabel.text;
+//    NSString *phone     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:4]].textLabel.text;
+//    NSString *address1  = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text;
+//    NSString *city      = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]].textLabel.text;
+//    NSString *state     = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]].textLabel.text;
 //    NSString *patientId = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]].textLabel.text;
     
     AppDelegate *delegate = [AppDelegate sharedDelegate];
@@ -279,6 +324,7 @@ const CGFloat headerFooterSize = 10.0f;
     NSString *practiceString = delegate.practiceID;
 //    NSString *patientId = delegate.patientID;
     NSString *baseURI = delegate.baseURI;
+    NSString *deptId = delegate.departmentID;
     
     // https://api.athenahealth.com/preview1/195900/patients
     
@@ -291,7 +337,50 @@ const CGFloat headerFooterSize = 10.0f;
 //    [urlRequest addValue:@"application/x-www-url-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     urlRequest.HTTPMethod = @"POST";
 
-    NSString *httpBody =@"address1=address+1&address2=address+2&departmentid=145&dob=04%2F10%2F62&email=declined&firstname=firstname&homephone=1234567890&lastname=lastname&mobilephone=1234567890&state=TX&zip=78722";
+    address1 = [address1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    // Build up the huge string with all the information
+    NSMutableString *httpBody = [NSMutableString string ];
+//    [httpBody appendString:[NSString stringWithFormat:@"departmentid=%@", deptId]];
+    [httpBody appendString:[NSString stringWithFormat:@"address1=%@", address1]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&address2="];
+    [httpBody appendString:@"&departmentid=145"];
+    [httpBody appendString:[NSString stringWithFormat:@"&dob=%@", dob]];
+    [httpBody appendString:[NSString stringWithFormat:@"&email=%@", email]];
+    [httpBody appendString:[NSString stringWithFormat:@"&firstname=%@", firstName]];
+    [httpBody appendString:[NSString stringWithFormat:@"&lastname=%@", lastName]];
+
+    [httpBody appendString:[NSString stringWithFormat:@"&homephone=%@", phone]];
+//    [httpBody appendString:@"&mobilephone=1234567890"];
+    [httpBody appendString:[NSString stringWithFormat:@"&state=%@", state]];
+    [httpBody appendString:[NSString stringWithFormat:@"&city=%@", city]];
+
+    // Fixed section
+//    [httpBody appendString:[NSString stringWithFormat:@"departmentid=%@", deptId]];
+
+    // Variable section
+    
+//    [httpBody appendString:[NSString stringWithFormat:@"firstname=%@", firstName]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&lastname=%@", lastName]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&dob=%@", dob]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&email=%@", email]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&phone=%@", phone]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&address1=%@", address1]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&address2=%@", @"address2"]];
+//
+//    [httpBody appendString:[NSString stringWithFormat:@"&city=%@", city]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&state=%@", city]];
+//    [httpBody appendString:[NSString stringWithFormat:@"&homephone=%@", @"1234567890"]];
+
+
+    
+
+    
+    
+    
+    
+//    NSString *httpBody =@"address1=address+1&address2=address+2&departmentid=145&dob=04%2F10%2F62&email=declined&firstname=firstname&homephone=1234567890&lastname=lastname&mobilephone=1234567890&state=TX&zip=78722";
+    NSLog(@"http body is %@", httpBody);
     urlRequest.HTTPBody = [httpBody dataUsingEncoding:NSUTF8StringEncoding];
     
     NSLog(@"token is %@", token);
@@ -311,9 +400,20 @@ const CGFloat headerFooterSize = 10.0f;
         
         // Convert to dictionary to pull out values
         
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        NSLog(@"dictionary response is %@", dictionary);
+        NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        NSLog(@"array response is %@", responseArray);
         
+        NSDictionary *responseDictionary = responseArray[0];
+
+        AppDelegate *delegate = [AppDelegate sharedDelegate];
+        delegate.patientID = responseDictionary[@"patientid"];
+        
+        dispatch_async(
+               dispatch_get_main_queue(),
+               ^{
+                   [self.tableView reloadData];
+               }
+);
         
         
     }];
