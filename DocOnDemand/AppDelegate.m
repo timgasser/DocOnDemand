@@ -36,7 +36,7 @@
 
     self.token = @"75f78t4yfbnqsmv966ukfv9e";
     self.practiceID = @"195900";
-    self.patientID = @"4909";
+    self.patientID = @"4905";
     self.baseURI = @"https://api.athenahealth.com/preview1";
     self.departmentID = @"145";
     
