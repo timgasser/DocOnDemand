@@ -34,15 +34,25 @@
     
 #pragma warning - This token is only valid for 1 hour ! Remember to renew !
 
-    self.token = @"5twjajjdxvbszwcze55695d4";
+    self.token = @"qcabm2pr9uzqp6xygd8x3ce3";
     self.practiceID = @"195900";
     self.patientID = @"4918";
     self.baseURI = @"https://api.athenahealth.com/preview1";
     self.departmentID = @"145";
     
+    
+    UIColor *barColor = [UIColor colorWithRed:136/255.0f green:197/255.0f blue:92/255.0f alpha:1.0f];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:barColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTranslucent:true];
+    
+    
+    [[UITabBar appearance] setTintColor:barColor];
 
-    NSString *clientID = @"nr3f8qhcbf6dr8ze4dcebnn3";
-    NSString *clientSecret = @"r326Py6PmysuGgP";
+    
+
 
 //    // Token request code
 //    
