@@ -34,3 +34,15 @@ The UITableViews initially appear empty as data is being requested, a loading UI
 
 I also left out the Token request code, as I couldn't get the Basic Authorization working in time. I'm not sure if this is because I wasn't Base64-encoding the strings in the HTTP Request, or some other reason. for the demo I requested a Token from IO Docs, which was valid for an hour.
 
+### Screenshots
+
+![ScreenShot](Screenshots/launch.png)
+![ScreenShot](Screenshots/user.png)
+![ScreenShot](Screenshots/booking1.png)
+![ScreenShot](Screenshots/booking2.png)
+![ScreenShot](Screenshots/booking3.png)
+![ScreenShot](Screenshots/appointments.png)
+
+
+
+
