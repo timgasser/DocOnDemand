@@ -11,7 +11,7 @@
 
 #import "ApiAppointment.h"
 
-const CGFloat headerFooterSize = 10.0f;
+//const CGFloat headerFooterSize = 10.0f;
 
 @interface AppointmentsTableViewController ()
 
@@ -205,7 +205,7 @@ const CGFloat headerFooterSize = 10.0f;
 // Tune the gap between groups in the tableview here
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return headerFooterSize;
+    return 10.0f;
     
 }
 
@@ -215,9 +215,9 @@ const CGFloat headerFooterSize = 10.0f;
 {
     
     if (section == 0) {
-        return headerFooterSize * 2.0f;
+        return 20.0f;
     } else {
-        return headerFooterSize;
+        return 10.0f;
     }
 }
 

@@ -34,7 +34,7 @@
     
 #pragma warning - This token is only valid for 1 hour ! Remember to renew !
 
-    self.token = @"fspzmn57u83a3q2n52epxgsg";
+    self.token = @"8e4837pgua7nkeb5asvztjb8";
     self.practiceID = @"195900";
     self.patientID = @"4918";
     self.baseURI = @"https://api.athenahealth.com/preview1";
@@ -51,121 +51,6 @@
     
     [[UITabBar appearance] setTintColor:barColor];
 
-    
-
-
-//    // Token request code
-//    
-//    
-//// Use POST
-////    https://api.athenahealth.com/oauthpreview/token
-//// username=key and password=secret
-//    
-//    
-//    NSMutableString *baseToken = [NSMutableString  stringWithFormat:@"https://api.athenahealth.com/oauthpreview/token?grant_type=client_credentials"];
-//
-//    NSURL *url = [NSURL URLWithString:baseToken];
-//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-//
-//    NSString *authStr = [NSString stringWithFormat:@"%@:%@", clientID, clientSecret];
-//    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
-//    NSString *authValue = [NSString stringWithFormat: @"Basic %@",[authData base64EncodedStringWithOptions:0]];
-//    [urlRequest setValue:authValue forHTTPHeaderField:@"Authorization"];
-//    [urlRequest addValue:[NSString stringWithFormat:@"application/x-www-form-urlencoded"] forHTTPHeaderField:@"Content-Type"];
-////    [urlRequest addValue:[NSString stringWithFormat:@"client_credentials"] forHTTPHeaderField:@"grant_type"];
-//    urlRequest.HTTPMethod = @"POST";
-//
-////  "grant_type=client_credentials"
-//    
-//        NSLog(@"url request : %@", urlRequest);
-//    
-//    // Create the NSURLSession
-//    NSURLSessionConfiguration *ephemeralConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:ephemeralConfig];
-//    
-//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest
-//                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        
-//                                                    NSLog(@"data = %@, response = %@, error = %@", data, response, error);
-//                                                    
-//                                                    
-//                                                    NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//                                                            NSLog(@"json string is %@", jsonString);
-//                                                    
-//                                                    // Convert to dictionary to pull out values
-//                                                    
-//                                                    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-//                                                    //        NSLog(@"dict response is %@", responseDictionary);
-//                                                    
-//                                                    NSArray *responseArray = responseDictionary[@"appointments"];
-//                                                    NSLog(@"found %tu appts", [responseArray count]);
-//                                                    
-//                                                    //        self.apptSlots = nil;
-//                                                    
-//                                                }];
-//    
-//    
-//    [dataTask resume];
-//    
-
-    
-    //----- end !
-    
-    
-    
-    // todo add a token renewal method here, callable from anywhere
-    
-    // Show the login confirmation screen
-//    [self.window.rootViewController performSegueWithIdentifier:@"loginSegue" sender:self];
-    
-    
-//    NSString *exampleHostString = @"https://api.athenahealth.com/preview1/1/practiceinfo";
-//
-//    
-//    // API test
-//    // Create an NSURLRequest
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/practiceinfo", baseURI]];
-//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-//    [urlRequest addValue:@"Bearer 4rtcfuektbtkg8cjakfzansf" forHTTPHeaderField:@"Authorization"];
-//    
-//    NSLog(@"url request : %@", urlRequest);
-//    
-//    // Create the NSURLSession
-//    NSURLSessionConfiguration *ephemeralConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:ephemeralConfig];
-//    
-//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        
-//        NSLog(@"data = %@, response = %@, error = %@", data, response, error);
-//        
-//        
-//        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//        NSLog(@"json string is %@", jsonString);
-//        
-//        // Convert to dictionary to pull out values
-//        
-//        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-//        NSLog(@"dictionary response is %@", dictionary);
-//        
-//        
-//        NSInteger practiceId = (NSInteger ) dictionary[@"practiceinfo"][0][@"practiceid"];
-//
-//        NSLog(@"practice id = %td", practiceId);
-//        
-//        
-//        
-//        
-//    
-//        
-//    }];
-//    
-//    [dataTask resume];
-//    
-//    
-//
-    
-    
-    
     
     // Override point for customization after application launch.
     return YES;

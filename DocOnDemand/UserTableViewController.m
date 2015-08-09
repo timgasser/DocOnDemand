@@ -15,7 +15,7 @@
 
 #import "ApiPatient.h"
 
-const CGFloat headerFooterSize = 10.0f;
+//const CGFloat headerFooterSize = 10.0f;
 
 
 @interface UserTableViewController () <LabelTextEntryTableViewCellDelegate>
@@ -302,50 +302,6 @@ const CGFloat headerFooterSize = 10.0f;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 #pragma mark - Helper functions
 // todo ! Clean up unused table view cells
@@ -435,31 +391,6 @@ const CGFloat headerFooterSize = 10.0f;
     [httpBody appendString:[NSString stringWithFormat:@"&state=%@", state]];
     [httpBody appendString:[NSString stringWithFormat:@"&city=%@", city]];
 
-    // Fixed section
-//    [httpBody appendString:[NSString stringWithFormat:@"departmentid=%@", deptId]];
-
-    // Variable section
-    
-//    [httpBody appendString:[NSString stringWithFormat:@"firstname=%@", firstName]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&lastname=%@", lastName]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&dob=%@", dob]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&email=%@", email]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&phone=%@", phone]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&address1=%@", address1]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&address2=%@", @"address2"]];
-//
-//    [httpBody appendString:[NSString stringWithFormat:@"&city=%@", city]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&state=%@", city]];
-//    [httpBody appendString:[NSString stringWithFormat:@"&homephone=%@", @"1234567890"]];
-
-
-    
-
-    
-    
-    
-    
-//    NSString *httpBody =@"address1=address+1&address2=address+2&departmentid=145&dob=04%2F10%2F62&email=declined&firstname=firstname&homephone=1234567890&lastname=lastname&mobilephone=1234567890&state=TX&zip=78722";
     NSLog(@"http body is %@", httpBody);
     urlRequest.HTTPBody = [httpBody dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -511,7 +442,7 @@ const CGFloat headerFooterSize = 10.0f;
 // Tune the gap between groups in the tableview here
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return headerFooterSize;
+    return 10.0f;
     
 }
 
@@ -519,9 +450,9 @@ const CGFloat headerFooterSize = 10.0f;
 {
     
     if (section == 0) {
-        return headerFooterSize * 2.0f;
+        return 20.0f;
     } else {
-        return headerFooterSize;
+        return 10.0f;
     }
 }
 
